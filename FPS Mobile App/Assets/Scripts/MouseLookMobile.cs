@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class MouseLookMobile : MonoBehaviour
 {
     public float mouseSensitivity = 1f;
 
@@ -29,19 +29,25 @@ public class MouseLook : MonoBehaviour
             {
                 pos = touch.position;
             }
-            if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved && pos.x > Screen.width/2)
             {
                 relPos = (touch.position - pos)*Time.deltaTime;
-                Debug.Log(relPos.x);
-                Debug.Log(relPos.y);
+            }
+            else
+            {
+                relPos = Vector2.zero;
             }
 
-              xRotation -= relPos.y;
+            if(Mathf.Abs(relPos.x) > .3f || Mathf.Abs(relPos.y) > .3f)
+            {
+                xRotation -= relPos.y;
 
-              xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-              transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-              playerBody.Rotate(Vector3.up * relPos.x);
+                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                playerBody.Rotate(Vector3.up * relPos.x);
+            }
+              
              
         }
     }

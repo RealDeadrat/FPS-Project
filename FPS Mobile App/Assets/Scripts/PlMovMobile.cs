@@ -8,7 +8,7 @@ public class PlMovMobile : MonoBehaviour
     private Rigidbody playerBody;
 
     private Vector3 inputMov;
-    public float speed;
+    public float speed = 5f;
 
     public float jumpforce;
     public ForceMode forceType;
@@ -17,13 +17,8 @@ public class PlMovMobile : MonoBehaviour
 
     public SphereCollider col;
 
-    Touch touch;
-
-    Vector2 Mpos;
-    Vector2 relMPos;
-
-    public float cMovx;
-    public float cMovy;
+    Vector2 pos;
+    Vector2 relPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,33 +31,24 @@ public class PlMovMobile : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            for(int i=0; i<Input.touchCount;i++)
-            {
-                if(Input.GetTouch(i).position.x < Screen.width / 2)
-                {
-                    touch = Input.GetTouch(i);
-                }
-            }
-            
+            Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
             {
-                Mpos = touch.position;
+                pos = touch.position;
             }
-            if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved && pos.x < Screen.width / 2)
             {
-                relMPos = (touch.position - Mpos) * Time.deltaTime;
+                relPos = (touch.position - pos) * Time.deltaTime;
+            }
+            else
+            {
+                relPos = Vector2.zero;
             }
 
-            if (Mathf.Abs(relMPos.x) > .3f || Mathf.Abs(relMPos.y) > .3f)
+            if (Mathf.Abs(relPos.x) > .3f || Mathf.Abs(relPos.y) > .3f)
             {
-                inputMov = new Vector3(relMPos.x, 0, relMPos.y);
-            }
-
-            if(touch.phase == TouchPhase.Ended)
-            {
-                playerBody.velocity = new Vector3(0, playerBody.velocity.y,0);
-                inputMov = Vector3.zero;
+                inputMov = new Vector3(relPos.x, 0, relPos.y);
             }
         }
 
@@ -77,8 +63,7 @@ public class PlMovMobile : MonoBehaviour
 
     void FixedUpdate()
     {
-       playerBody.AddRelativeForce(inputMov * speed);
-     
+        playerBody.AddForce(inputMov * speed);
     }
 
     private bool IsGrounded()

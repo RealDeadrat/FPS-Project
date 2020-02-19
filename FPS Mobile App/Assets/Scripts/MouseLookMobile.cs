@@ -43,7 +43,7 @@ public class MouseLookMobile : MonoBehaviour
             }
             else
             {
-                relPos = Vector2.zero;
+                relPos = Vector2.zero;  
             }
 
             if(Mathf.Abs(relPos.x) > .3f || Mathf.Abs(relPos.y) > .3f)

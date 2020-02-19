@@ -6,7 +6,9 @@ public class MouseLookMobile : MonoBehaviour
 {
     public float mouseSensitivity = 1f;
 
-    public Transform playerBody;
+    public Transform playerTransform;
+
+    Touch touch;
 
     Vector2 pos;
     Vector2 relPos;
@@ -23,7 +25,13 @@ public class MouseLookMobile : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                if (Input.GetTouch(i).position.x > Screen.width / 2)
+                {
+                    touch = Input.GetTouch(i);
+                }
+            }
 
             if (touch.phase == TouchPhase.Began)
             {
@@ -45,7 +53,7 @@ public class MouseLookMobile : MonoBehaviour
                 xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
                 transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-                playerBody.Rotate(Vector3.up * relPos.x);
+                playerTransform.Rotate(Vector3.up * relPos.x);
             }
               
              

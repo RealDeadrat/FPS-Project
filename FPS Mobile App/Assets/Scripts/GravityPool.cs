@@ -16,7 +16,7 @@ public class GravityPool : MonoBehaviour
         
     }
 
-    void gravityUse()
+    public void gravityUse()
     {
         
     }

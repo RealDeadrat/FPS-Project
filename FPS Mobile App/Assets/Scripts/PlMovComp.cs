@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlMovComp : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class PlMovComp : MonoBehaviour
 
     public SphereCollider col;
 
+    private int nextScene;
+
     // Start is called before the first frame update
     void Start()
     {
         playerBody = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
+
+        nextScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -35,12 +40,16 @@ public class PlMovComp : MonoBehaviour
             playerBody.AddForce(Vector3.up * jumpforce, forceType);
         }
 
+        if(transform.position.y < -10)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
 
     }
 
     void FixedUpdate()
     {
-        playerBody.AddForce(inputMov * speed);
+        playerBody.AddRelativeForce(inputMov * speed);
     }
 
     private bool IsGrounded()

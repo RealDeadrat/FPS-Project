@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlMovMobile : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlMovMobile : MonoBehaviour
 
     public SphereCollider col;
 
+    private bool didJump;
     Touch touch;
 
     Vector2 Mpos;
@@ -24,11 +26,15 @@ public class PlMovMobile : MonoBehaviour
 
     public float cMovx;
     public float cMovy;
+
+    private int nextScene;
     // Start is called before the first frame update
     void Start()
     {
         playerBody = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
+
+        nextScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -66,19 +72,28 @@ public class PlMovMobile : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("Jump") == 1 && IsGrounded())
+        if (didJump && IsGrounded())
         {
 
             playerBody.AddForce(Vector3.up * jumpforce, forceType);
+            didJump = false;
         }
 
-
+        if (transform.position.y < -10)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
     void FixedUpdate()
     {
        playerBody.AddRelativeForce(inputMov * speed);
      
+    }
+
+    public void Jump()
+    {
+        didJump = true;
     }
 
     private bool IsGrounded()

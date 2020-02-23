@@ -2053,7 +2053,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.109375, y: 0.03125, z: 0.02734375, w: -0.03125}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2869,7 +2869,7 @@ PrefabInstance:
     - target: {fileID: 4835688485960387562, guid: 5624892aab5c0014e8e97e05b3cc0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: Ability
       objectReference: {fileID: 0}
     - target: {fileID: 4835688485960387562, guid: 5624892aab5c0014e8e97e05b3cc0d4f,
         type: 3}
@@ -2958,7 +2958,7 @@ PrefabInstance:
     - target: {fileID: 8193006365280751454, guid: a7377d41111c0f54086d1101a33c2e10,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8193006365319260856, guid: a7377d41111c0f54086d1101a33c2e10,
         type: 3}
@@ -3028,6 +3028,11 @@ PrefabInstance:
     - target: {fileID: 8193006365319260858, guid: a7377d41111c0f54086d1101a33c2e10,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193006365319260862, guid: a7377d41111c0f54086d1101a33c2e10,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

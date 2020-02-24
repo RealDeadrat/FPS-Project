@@ -45,7 +45,7 @@ public class AbilityScript : MonoBehaviour
         }
         
     }
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         if(!inUse)
@@ -70,8 +70,12 @@ public class AbilityScript : MonoBehaviour
 
     public void UseAbility()
     {
-        isUsed = true;
-        inUse = true;
+        if (!inUse)
+        {
+            isUsed = true;
+            inUse = true;
+
+        }
     }
 
     void OnCollisionEnter(Collision collision)

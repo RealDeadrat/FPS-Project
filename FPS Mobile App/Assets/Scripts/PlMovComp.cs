@@ -20,6 +20,10 @@ public class PlMovComp : MonoBehaviour
 
     private int nextScene;
 
+    
+ 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,12 @@ public class PlMovComp : MonoBehaviour
         {
 
             playerBody.AddForce(Vector3.up * jumpforce, forceType);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)){
+
+            GameObject.Find("Ability").GetComponent<AbilityScript>().UseAbility();
+            
         }
 
         if(transform.position.y < -10)

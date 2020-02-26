@@ -50,7 +50,7 @@ public class AbilityScript : MonoBehaviour
     {
         if(!inUse)
         {
-            transform.position = playerTransform.position + new Vector3(0,2,0);
+            transform.position = playerTransform.position + new Vector3(0,3,0);
             transform.rotation = playerTransform.rotation;
            // transform.Rotate(Vector3.up*playerTransform.localRotation.y);
             abilityBody.useGravity = false;

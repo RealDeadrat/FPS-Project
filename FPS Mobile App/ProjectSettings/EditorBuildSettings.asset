@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bus.unity
     guid: b2c850da15e85f54c8a5cb6685a529e3
+  - enabled: 1
+    path: Assets/Scenes/Island.unity
+    guid: e4fa0b1b4fa206d448ccfd12f63977a3
   m_configObjects: {}

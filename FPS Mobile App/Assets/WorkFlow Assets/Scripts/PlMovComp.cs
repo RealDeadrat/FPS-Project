@@ -49,12 +49,12 @@ public class PlMovComp : MonoBehaviour
             GameObject.Find("Ability").GetComponent<AbilityScript>().UseAbility();
             
         }
-
+        /*
         if(transform.position.y < -10)
         {
             SceneManager.LoadScene(nextScene);
         }
-
+        */
     }
 
     void FixedUpdate()

@@ -91,11 +91,12 @@ public class PlMovMobile : MonoBehaviour
             playerBody.AddForce(Vector3.up * jumpforce, forceType);
             didJump = false;
         }
-
+        /*
         if (transform.position.y < -10)
         {
             SceneManager.LoadScene(nextScene);
         }
+        */
     }
 
     void FixedUpdate()

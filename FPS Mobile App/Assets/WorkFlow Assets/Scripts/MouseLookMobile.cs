@@ -19,10 +19,13 @@ public class MouseLookMobile : MonoBehaviour
     public RawImage innerCircle;
     public RawImage outerCircle;
 
+    CanvasScaler fuckYou;
+
     // Start is called before the first frame update
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
+        fuckYou = GameObject.Find("User Interface").GetComponent<CanvasScaler>();
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class MouseLookMobile : MonoBehaviour
             {
                 pos = touch.position;
 
-                outerCircle.rectTransform.anchoredPosition = pos;
+                outerCircle.rectTransform.anchoredPosition = new Vector2(pos.x / (Screen.width / fuckYou.referenceResolution.x), pos.y / (Screen.height / fuckYou.referenceResolution.y));
 
                 innerCircle.enabled = true;
                 outerCircle.enabled = true;

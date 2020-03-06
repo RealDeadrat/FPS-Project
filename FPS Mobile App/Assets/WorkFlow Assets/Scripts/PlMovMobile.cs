@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using UnityEngine.Camera;
 
 public class PlMovMobile : MonoBehaviour
 {
@@ -31,12 +32,16 @@ public class PlMovMobile : MonoBehaviour
     public RawImage innerCircle;
     public RawImage outerCircle;
 
+    CanvasScaler fuckYou;
+
     private int nextScene;
     // Start is called before the first frame update
     void Start()
     {
         playerBody = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
+        fuckYou = GameObject.Find("User Interface").GetComponent<CanvasScaler>();
+
 
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
@@ -57,9 +62,17 @@ public class PlMovMobile : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                Mpos = touch.position;
-                outerCircle.rectTransform.anchoredPosition = Mpos;
+                /*
+                float logWidth = Mathf.Log(Screen.width / fuckYou.width, kLogBase);
+                float logHeight = Mathf.Log(Screen.height / m_ReferenceResolution.y, kLogBase);
+                float logWeightedAverage = Mathf.Lerp(logWidth, logHeight, m_MatchWidthOrHeight);
+                scaleFactor = Mathf.Pow(kLogBase, logWeightedAverage);
+                */
 
+                Mpos = touch.position;
+                outerCircle.rectTransform.anchoredPosition = new Vector2(Mpos.x / (Screen.width / fuckYou.referenceResolution.x), Mpos.y/(Screen.height/fuckYou.referenceResolution.y));
+                Debug.Log(touch.position);
+                Debug.Log(Mpos);
                 innerCircle.enabled = true;
                 outerCircle.enabled = true;
             }

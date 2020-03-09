@@ -49,6 +49,15 @@ public class PlMovComp : MonoBehaviour
             GameObject.Find("Ability").GetComponent<AbilityScript>().UseAbility();
             
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+
+            GameObject.Find("Teleport").GetComponent<Teleport>().Update();
+
+        }
+
+
         /*
         if(transform.position.y < -10)
         {

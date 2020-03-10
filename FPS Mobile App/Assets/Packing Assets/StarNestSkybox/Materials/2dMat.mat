@@ -25,6 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Brightness: 2
+    - _CLAMPOUT: 0
     - _CamScroll: 0
     - _Darkmatter: 25
     - _Distfading: 68

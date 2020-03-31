@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,7 +24,8 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+       
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
@@ -31,7 +33,15 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
-
-        SceneManager.LoadScene(levelIndex);
+        //ignores try catch for some reason
+        try
+        {
+            SceneManager.LoadScene(levelIndex);
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Requested Scene Failed To Load, Returned To Main Menu");
+            SceneManager.LoadScene(0);
+        }
     }
 }

@@ -57,6 +57,13 @@ public class PlMovComp : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+
+            GameObject.Find("ForceField").GetComponent<ForceField>().Update();
+
+        }
+
 
         /*
         if(transform.position.y < -10)

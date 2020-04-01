@@ -11,14 +11,57 @@ public class LevelLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    public Transform playerOneTransform;
+    public Transform playerTwoTransform;
+    public Transform playerThreeTransform;
+    public Transform playerFourTransform;
 
+    private int playersOut;
+
+    private bool pOneOut;
+    private bool pTwoOut;
+    private bool pThreeOut;
+    private bool pFourOut;
+    void Start()
+    {
+        pOneOut = false;
+        pTwoOut = false;
+        pThreeOut = false;
+        pFourOut = false;
+        playersOut = 0;
+    }
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < -10)
+        if(!pOneOut && playerOneTransform.position.y < -10)
+        {
+            pOneOut = true;
+            playersOut++;
+        }
+        if (!pTwoOut && playerTwoTransform.position.y < -10)
+        {
+            pTwoOut = true;
+            playersOut++;
+        }
+        if (!pThreeOut && playerThreeTransform.position.y < -10)
+        {
+            pThreeOut = true;
+            playersOut++;
+        }
+        if (!pFourOut && playerFourTransform.position.y < -10)
+        {
+            pFourOut = true;
+            playersOut++;
+        }
+        if(playersOut >= 3)
         {
             LoadNextLevel();
         }
+       /* if (transform.position.y < -100)
+        {
+            transform.position.y = 200;
+            transform.position.x = 0;
+        }*/
 
     }
 

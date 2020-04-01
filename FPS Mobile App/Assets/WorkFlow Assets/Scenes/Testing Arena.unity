@@ -1031,7 +1031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1797943744
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc82f0ce82f8974eb9d8b26c16f1a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 0}
+  shield: {fileID: 1797943743}
 --- !u!114 &1932356963 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1532447087, guid: 5b35c2366d071854ea0d20c2e0f693f8,

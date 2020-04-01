@@ -53,14 +53,14 @@ public class PlMovComp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
-            GameObject.Find("Teleport").GetComponent<Teleport>().Update();
+            GetComponent<Teleport>().Update();
 
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
 
-            GameObject.Find("ForceField").GetComponent<ForceField>().Update();
+            GetComponent<ForceField>().DoAbility();
 
         }
 

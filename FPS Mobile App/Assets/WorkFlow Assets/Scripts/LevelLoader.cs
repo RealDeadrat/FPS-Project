@@ -24,8 +24,13 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-       
-            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        int randInt = UnityEngine.Random.Range(1, 5);
+
+        while(randInt == SceneManager.GetActiveScene().buildIndex)
+        {
+            randInt = UnityEngine.Random.Range(1, 5);
+        }
+        StartCoroutine(LoadLevel(randInt));
     }
 
     IEnumerator LoadLevel(int levelIndex)

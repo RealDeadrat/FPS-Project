@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 1797943743}
+  shieldTransform: {fileID: 1797943747}
 --- !u!114 &1932356963 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1532447087, guid: 5b35c2366d071854ea0d20c2e0f693f8,

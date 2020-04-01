@@ -57,11 +57,10 @@ public class LevelLoader : MonoBehaviour
         {
             LoadNextLevel();
         }
-       /* if (transform.position.y < -100)
+       if (transform.position.y < -100)
         {
-            transform.position.y = 200;
-            transform.position.x = 0;
-        }*/
+            playerOneTransform.position += Vector3.up*400f;
+        }
 
     }
 

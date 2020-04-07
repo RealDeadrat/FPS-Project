@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -13704,6 +13704,11 @@ PrefabInstance:
       propertyPath: playerFourTransform
       value: 
       objectReference: {fileID: 1813079711}
+    - target: {fileID: 6852521246748945173, guid: 5b35c2366d071854ea0d20c2e0f693f8,
+        type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 1971723550}
     - target: {fileID: 7771991325882204137, guid: 5b35c2366d071854ea0d20c2e0f693f8,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -13861,6 +13866,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b35c2366d071854ea0d20c2e0f693f8, type: 3}
+--- !u!114 &1971723550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6060488496695004054, guid: 5b35c2366d071854ea0d20c2e0f693f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1971723549}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2026527323
 GameObject:
   m_ObjectHideFlags: 0

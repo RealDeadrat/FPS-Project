@@ -22,6 +22,12 @@ public class LevelLoader : MonoBehaviour
     private bool pTwoOut;
     private bool pThreeOut;
     private bool pFourOut;
+    
+    public static int pOneScore = 0;
+    public int pTwoScore;
+    public int pThreeScore;
+    public int pFourScore;
+
     void Start()
     {
         pOneOut = false;
@@ -29,6 +35,7 @@ public class LevelLoader : MonoBehaviour
         pThreeOut = false;
         pFourOut = false;
         playersOut = 0;
+        Debug.Log(pOneScore);
     }
     // Update is called once per frame
     void Update()
@@ -66,6 +73,26 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        if(!pOneOut)
+        {
+            pOneScore++;
+            pOneOut = true;
+        }
+        else if (!pTwoOut)
+        {
+            pTwoScore++;
+            pTwoOut = true;
+        }
+        else if (!pThreeOut)
+        {
+            pThreeScore++;
+            pThreeOut = true;
+        }
+        else if (!pFourOut)
+        {
+            pFourScore++;
+            pFourOut = true;
+        }
         int randInt = UnityEngine.Random.Range(1, 5);
 
         while(randInt == SceneManager.GetActiveScene().buildIndex)

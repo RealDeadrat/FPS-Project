@@ -15,7 +15,7 @@ public class LevelLoader : MonoBehaviour
     public Transform playerTwoTransform;
     public Transform playerThreeTransform;
     public Transform playerFourTransform;
-
+    
     private int playersOut;
 
     private bool pOneOut;
@@ -60,13 +60,14 @@ public class LevelLoader : MonoBehaviour
             pFourOut = true;
             playersOut++;
         }
+       
         if(playersOut >= 3)
         {
             LoadNextLevel();
         }
        if (transform.position.y < -100)
         {
-            playerOneTransform.position += Vector3.up*400f;
+           playerOneTransform.position += Vector3.up*400f;
         }
 
     }
@@ -93,11 +94,11 @@ public class LevelLoader : MonoBehaviour
             pFourScore++;
             pFourOut = true;
         }
-        int randInt = UnityEngine.Random.Range(1, 5);
+        int randInt = UnityEngine.Random.Range(1, 4);
 
         while(randInt == SceneManager.GetActiveScene().buildIndex)
         {
-            randInt = UnityEngine.Random.Range(1, 5);
+            randInt = UnityEngine.Random.Range(1, 4);
         }
         StartCoroutine(LoadLevel(randInt));
     }

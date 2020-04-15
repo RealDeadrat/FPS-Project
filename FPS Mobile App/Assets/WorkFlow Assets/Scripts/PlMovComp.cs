@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//using UnityEngine.Networking;
 
 public class PlMovComp : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class PlMovComp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       // if(hasAuthority == false)
+       // {
+       //     return;
+       // }
         playerBody = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
 
@@ -36,6 +41,10 @@ public class PlMovComp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       //if(hasAuthority == false)
+       //{
+        //    return;
+        //}
         inputMov = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
         if (Input.GetAxisRaw("Jump") == 1 && IsGrounded())
@@ -63,6 +72,7 @@ public class PlMovComp : MonoBehaviour
             GetComponent<ForceField>().DoAbility();
 
         }
+        
 
 
         /*
@@ -75,6 +85,11 @@ public class PlMovComp : MonoBehaviour
 
     void FixedUpdate()
     {
+        //if (hasAuthority == false)
+        //{
+        //    return;
+        //}
+
         playerBody.AddRelativeForce(inputMov * speed);
     }
 

@@ -7,6 +7,6 @@ public class PlaySelection : MonoBehaviour
 {
    public void PlayGame ()
     {
-        SceneManager.LoadScene(Random.Range(1,5));
+        SceneManager.LoadScene(Random.Range(1,4));
     }
 }

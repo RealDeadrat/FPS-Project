@@ -297,6 +297,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611754868153339851, guid: a7377d41111c0f54086d1101a33c2e10,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883034108856211252, guid: a7377d41111c0f54086d1101a33c2e10,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883034108856211252, guid: a7377d41111c0f54086d1101a33c2e10,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8193006365280751453, guid: a7377d41111c0f54086d1101a33c2e10,
         type: 3}
       propertyPath: m_Enabled

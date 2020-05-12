@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEngine.Networking;
+using UnityEngine.Networking;
 
-public class PlMovComp : MonoBehaviour
+public class PlMovComp : NetworkBehaviour
 {
 
     private Rigidbody playerBody;
@@ -20,7 +20,7 @@ public class PlMovComp : MonoBehaviour
     public SphereCollider col;
 
     private int nextScene;
-
+    
     
  
 
@@ -28,10 +28,11 @@ public class PlMovComp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // if(hasAuthority == false)
+      //  if(hasAuthority == false)
        // {
-       //     return;
+      //      return;
        // }
+        Camera.main.transform.SetParent(transform);
         playerBody = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
 
@@ -42,14 +43,13 @@ public class PlMovComp : MonoBehaviour
     void Update()
     {
        //if(hasAuthority == false)
-       //{
+      // {
         //    return;
-        //}
+       // }
         inputMov = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
         if (Input.GetAxisRaw("Jump") == 1 && IsGrounded())
         {
-
             playerBody.AddForce(Vector3.up * jumpforce, forceType);
         }
 
@@ -85,11 +85,10 @@ public class PlMovComp : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (hasAuthority == false)
+       //if (hasAuthority == false)
         //{
-        //    return;
-        //}
-
+          // return;
+     //  }
         playerBody.AddRelativeForce(inputMov * speed);
     }
 

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Numerics;
 
 namespace Brawl_Out_Server
 {
@@ -17,6 +20,18 @@ namespace Brawl_Out_Server
                 Console.WriteLine($"Player \"{_username}\" (ID: { _fromClient}) has assumed the wrong client ID ({ _clientIdCheck})!");
             }
             Server.clients[_fromClient].SendIntoGame(_username);
+        }
+
+        public static void PlayerMovement(int _fromClient, Packet _packet)
+        {
+            bool[] _inputs = new bool[_packet.ReadInt()];
+            for (int i = 0; i < _inputs.Length; i++)
+            {
+                _inputs[i] = _packet.ReadBool();
+            }
+            Quaternion _rotation = _packet.ReadQuaternion();
+
+            Server.clients[_fromClient].player.SetInput(_inputs, _rotation);
         }
     }
 }

@@ -121,6 +121,7 @@ namespace Brawl_Out_Server
             packetHandlers = new Dictionary<int, PacketHandler>()
             {
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
+                { (int)ClientPackets.playerMovement, ServerHandle.WelcomeReceived },
                 
             };
             Console.WriteLine("Initialized packets.");
